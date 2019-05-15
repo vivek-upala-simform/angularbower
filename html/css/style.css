@@ -1,0 +1,666 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0;
+}
+
+/** Fonts **/
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.eot");
+  src: url("../fonts/Roboto-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Roboto-Light.woff2") format("woff2"),
+    url("../fonts/Roboto-Light.woff") format("woff"),
+    url("../fonts/Roboto-Light.ttf") format("truetype"),
+    url("../fonts/Roboto-Light.svg#Roboto-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.eot");
+  src: url("../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Roboto-Bold.woff2") format("woff2"),
+    url("../fonts/Roboto-Bold.woff") format("woff"),
+    url("../fonts/Roboto-Bold.ttf") format("truetype"),
+    url("../fonts/Roboto-Bold.svg#Roboto-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.eot");
+  src: url("../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Roboto-Regular.woff2") format("woff2"),
+    url("../fonts/Roboto-Regular.woff") format("woff"),
+    url("../fonts/Roboto-Regular.ttf") format("truetype"),
+    url("../fonts/Roboto-Regular.svg#Roboto-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.eot");
+  src: url("../fonts/Roboto-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Roboto-Medium.woff2") format("woff2"),
+    url("../fonts/Roboto-Medium.woff") format("woff"),
+    url("../fonts/Roboto-Medium.ttf") format("truetype"),
+    url("../fonts/Roboto-Medium.svg#Roboto-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: "Roboto";
+  font-weight: normal;
+  font-style: normal;
+  background: #000000;
+  color: #fff;
+  margin: 0px;
+  font-size: 18px;
+  line-height: 1;
+  height: 100vh;
+}
+/** default css **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 56px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-style: normal;
+}
+h2 {
+  font-size: 36px;
+  line-height: 42px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+}
+h3 {
+  font-size: 24px;
+  line-height: 28px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-style: normal;
+}
+.main {
+  padding: 0 27px 54px 27px;
+  min-height: 100vh;
+  flex-direction: column;
+  display: flex;
+}
+.main > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.main header {
+  padding-bottom: 0;
+  flex: 0 0 147px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.main section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin: 0 -27px;
+}
+.main-section-row {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.p-b-54 {
+  padding-bottom: 54px;
+}
+.pad-0 {
+  padding: 0px !important;
+}
+/** Custom Grid Gutters **/
+.container-fluid {
+  padding-left: 27px;
+  padding-right: 27px;
+}
+.row-large-gutter {
+  margin-left: -27px;
+  margin-right: -27px;
+}
+.row-large-gutter > [class^="col-"] {
+  padding-left: 27px;
+  padding-right: 27px;
+}
+.flex-shrink-0 {
+  -ms-flex-negative: 0 !important;
+  flex-shrink: 0 !important;
+}
+/** column structure **/
+.column-big {
+  flex-grow: 1;
+  flex-basis: 933px;
+  padding-left: 27px;
+  padding-right: 27px;
+  position: relative;
+}
+.column-medium {
+  flex-grow: 1;
+  flex-basis: 622px;
+  padding-left: 27px;
+  padding-right: 27px;
+  position: relative;
+}
+.column-small {
+  flex-basis: 311px;
+  padding-left: 27px;
+  padding-right: 27px;
+  position: relative;
+}
+
+/** default grid Css **/
+.grid-box {
+  background: #181818;
+  border-radius: 7px;
+  overflow: hidden;
+  height: 100%;
+}
+.grid-box-head {
+  background: #26ff88;
+  border-radius: 7px 7px 0px 0px;
+  min-height: 66px;
+  flex: 0 0 66px;
+  text-align: center;
+}
+.grid-box-head h3 {
+  color: #000000;
+}
+.grid-box-head p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+.grid-box-body {
+  padding: 24px;
+  flex: 1 1 auto;
+}
+/** Progress Bar Css **/
+.progress {
+  width: 100%;
+  border: 2px solid #26ff88;
+  border-radius: 7px;
+  overflow: hidden;
+  background: transparent;
+  position: relative;
+}
+.progress:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 1px;
+  height: 100%;
+  border: 1px dashed #26ff88;
+}
+.progress-lg {
+  height: 87px;
+}
+.progress-bar {
+  background: #26ff88;
+  border-radius: 0px;
+}
+
+/***  session-ccs-In-progress ****/
+.power-count-row p {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}
+.flex-grow-8 {
+  flex-grow: 8;
+}
+.flex-grow-1 {
+  flex-grow: 0;
+}
+.flex-grow-1 {
+  flex-grow: 0;
+}
+.chargingprogressbox {
+  height: 100%;
+}
+.progress-content {
+  max-width: 564px;
+  width: 100%;
+  text-align: center;
+}
+.progress-content .progress-row {
+  padding: 42px 0;
+}
+.power-count-box {
+  padding: 24px;
+}
+.power-count-box p {
+  margin-bottom: 7px;
+}
+.stop-btn,
+.stop-btn:focus {
+  border-radius: 7px;
+  background: #cd0707;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  border: 0px;
+  width: 100%;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 42px 10px;
+  transition: all 0.5s ease-in-out;
+  outline: 0px;
+}
+.stop-btn span {
+  margin-right: 14px;
+  display: inline;
+}
+.stop-btn:hover {
+  background-color: #ab1212;
+}
+.info-content {
+  padding: 30px;
+}
+.info-content h2 {
+  color: #424242;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+}
+.charging-plug-box {
+  text-align: center;
+  flex: 1 1 auto;
+}
+.charging-plug-box .charging-plug-image {
+  padding-bottom: 22px;
+}
+.charging-plug-btn .plug-btn,
+.charging-plug-btn .plug-btn:focus {
+  text-align: center;
+  width: 100%;
+  padding: 27px 10px 28px;
+  background: #26ff88;
+  outline: 0px;
+  transition: all 0.5s ease-in-out;
+  border: none;
+}
+.charging-plug-btn .plug-btn:hover {
+  background: #1fcc6d;
+}
+/** session-In-progress **/
+.progress-sm {
+  height: 28px;
+}
+.remaining-until-box {
+  flex-grow: 8;
+  padding: 48px 24px;
+}
+.remaining-until-progress .progress-row {
+  padding: 48px 0 14px;
+}
+.remaining-until-progress p {
+  font-weight: 300;
+  font-size: 18px;
+  padding-bottom: 14px;
+}
+.remaining-until-count {
+  padding-top: 53px;
+  text-align: left;
+}
+.remaininguntil-count-box {
+  padding-bottom: 24px;
+}
+.remaininguntil-count-box:last-child {
+  padding-bottom: 0px;
+}
+.remaininguntil-count-box p {
+  font-weight: 300;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+  padding-bottom: 7px;
+}
+.remaininguntil-count-box h2 {
+  font-weight: normal;
+}
+.charging-Details-btn {
+  flex: 0 0 64px;
+}
+.charging-Details-btn .details-btn,
+.charging-Details-btn .details-btn:focus {
+  background: #26ff88;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  padding: 24px 10px;
+  border: none;
+  width: 100%;
+  outline: 0px;
+  transition: all 0.5s ease-in-out;
+}
+.charging-Details-btn .details-btn:hover {
+  background: #1fcc6d;
+}
+
+/**** session-stopped ****/
+.stop-charging-bnt .exit-btn,
+.stop-charging-bnt .exit-btn:focus {
+  border: 2px solid #cd0707;
+  color: #cd0707;
+  border-radius: 7px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 48px 0;
+  background: transparent;
+  width: 100%;
+  outline: 0px;
+  transition: all 0.5s ease-in-out;
+}
+.stop-charging-bnt .exit-btn:hover {
+  background: #cd0707;
+  color: #fff;
+}
+
+/*** dual-session-welcome  **/
+.payment-details .payment-pad-top {
+  padding-top: 245px;
+}
+.payment-button .button-box {
+  padding: 0 27px;
+  display: inline-flex;
+}
+.payment-button .button,
+.payment-button .button:focus {
+  border: 2px solid #26ff88;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #26ff88;
+  outline: 0px;
+  width: 257px;
+  height: 71px;
+  background: transparent;
+  transition: all 0.5s ease-in-out;
+}
+.payment-button .button:hover {
+  background: #26ff88;
+  color: #000;
+}
+.payment-button .button.cancel-btn {
+  border: 2px solid #cd0707;
+  color: #cd0707;
+}
+.payment-button .button.cancel-btn:hover {
+  background: #cd0707;
+
+  color: #fff;
+}
+
+/** dual-session-charger-activating ***/
+.payment-details {
+  position: relative;
+  max-width: 627px;
+  width: 100%;
+}
+
+.chargingStatus {
+  position: relative;
+  padding: 157px 0 202px;
+}
+.chargingStatus .text-success {
+  color: #26ff88;
+}
+.rightChargingPlug {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: -295px;
+  top: 50%;
+  margin-top: -163px;
+  color: #fff;
+}
+.rightChargingPlug:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.rightChargingPlug .right-arrow {
+  padding: 20px 0 0 20px;
+}
+
+.leftChargingPlug {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: -295px;
+  top: 50%;
+  margin-top: -163px;
+  color: #fff;
+}
+.leftChargingPlug:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.leftChargingPlug .right-arrow {
+  padding: 20px 20px 0 0;
+}
+
+.columnSmallInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 311px;
+}
+/** session in progress time **/
+.charging-progres-steps {
+  height: 100%;
+  justify-content: space-between;
+}
+.progresStepsHead {
+  position: relative;
+  flex: 0 0 90px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  background: #26ff88;
+  border-radius: 7px;
+  padding: 0 55px;
+}
+.progresStepsHead h2 {
+  color: #000;
+}
+.progresStepsHead a {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  line-height: 90px;
+  vertical-align: middle;
+}
+.power-count-tabing {
+  display: block;
+  color: #fff;
+  position: relative;
+  overflow: inherit;
+  padding: 18px 24px 18px;
+}
+.power-count-tabing.active:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  right: -55px;
+  background: #181818;
+}
+.power-count-tabing:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.TimeProgresSteps {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.TimeProgresStepsDetails {
+  flex: 1 1 auto;
+  padding-right: 54px;
+  text-align: right;
+  padding-top: 14px;
+}
+.progressbar-steps {
+  flex: 0 0 83px;
+  display: flex;
+  align-items: flex-end;
+}
+.progressbar-steps .progress {
+  height: calc(100% - 13.75px);
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: inherit;
+}
+.progressbar-steps .progress::before {
+  content: "";
+  position: absolute;
+  top: -13.75px;
+  left: 0;
+  right: 0;
+  width: 33px;
+  height: 13.75px;
+  border-radius: 7px 7px 0px 0px;
+  border: 2px solid #26ff88;
+  margin: 0 auto;
+}
+.progressbar-steps .progress::after {
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 80%;
+  top: inherit;
+}
+.progressbar-steps .progress-bar-steps {
+  border-radius: 0 0 7px 7px;
+}
+.progressbar-steps .CurrentCharge {
+  background: #26ff88;
+  margin-bottom: -7px;
+}
+.progressbar-steps .timeElapsed {
+  background: rgba(38, 255, 136, 0.4);
+}
+.ProgresStepsDetailsBox {
+  padding-bottom: 90px;
+}
+.ProgresStepsDetailsBox:last-child {
+  padding-bottom: 0px;
+}
+.ProgresStepsDetailsBox p {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  padding-bottom: 7px;
+}
+.CarCompanyLogoRow {
+  display: flex;
+}
+.CarCompanyLogoCcs {
+  flex-basis: 50%;
+  border-right: 2px solid #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.CarCompanyLogoCha {
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: right;
+  justify-content: flex-end;
+}
+.CarCompanyLogoCha img,
+.CarCompanyLogoCcs img {
+  width: 80%;
+}
+
+.CarCompanyLogoBox {
+  max-width: 100%;
+  width: 70%;
+}
+/* ****** Pricing Details Table Start ****** */
+.PricingTableBlock {
+  position: relative;
+  max-width: 727px;
+  width: 100%;
+}
+.pricingTableInfo {
+  padding: 28px 0 94px 0;
+}
+.pricing-table {
+  margin: 0;
+}
+.pricing-table thead th {
+  border-top: 0;
+  border-bottom: 1px solid #5f5f5f;
+  text-align: right;
+  padding-left: 0;
+}
+.pricing-table thead th:last-child,
+.pricing-table tbody td:last-child {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+.pricing-table tbody th {
+  text-align: left;
+  padding-left: 0;
+  width: 200px;
+  border-bottom: 1px solid #5f5f5f;
+}
+.pricing-table tbody td {
+  padding-left: 0;
+  width: 250px;
+  border-bottom: 1px solid #5f5f5f;
+}
+.pricing-table td,
+.pricing-table th {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: right;
+}
+.chargingStatusHelp {
+  padding: 60px 0 100px;
+}
+.chargingStatusHelp .CarCompanyLogoCha {
+  padding: 0 45px 0 0;
+}
+.green-text {
+  color: #26ff88;
+}
+/* ******* Pricing Details Table End ******* */

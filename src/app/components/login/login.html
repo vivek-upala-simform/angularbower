@@ -1,0 +1,29 @@
+<div ng-if="!vm.isLoggedIn()">
+    <h3>Login</h3>
+    <form name='frmLogin' autocomplete="off">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Username </label>
+                    <input type="text" name="username" class="form-control" placeholder="Username" autofocus data-ng-model="vm.userName" validator="required">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Password </label>
+                    <input type="password" class="form-control" name="pass" placeholder="Password" data-ng-model="vm.password" validator="required">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-save-close" validation-submit="frmLogin" data-ng-click="vm.login();">Login</button><br />
+                    <a ui-sref="forgotpassword"> Forgot password? </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
