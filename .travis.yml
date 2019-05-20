@@ -6,6 +6,5 @@ node_js:
   - "10.3.0"
 script: 
   - "npm install"
-  - "bower install"
-  - "gulp serve"
+  - "bower install"  
   - "gulp build:prod"
