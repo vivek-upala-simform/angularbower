@@ -1,12 +1,11 @@
-
+before_script: 
+  - "npm install bower -g"
+  - "npm install gulp -g"
 language: node_js
-node_js:
--  "10.3.0"
-before_script:
--npm install -g gulp
--npm install -g bower
-script:
-  - npm install
-  - bower install
-  - gulp serve
-  - gulp build:prod
+node_js: 
+  - "10.3.0"
+script: 
+  - "npm install"
+  - "bower install"
+  - "gulp serve"
+  - "gulp build:prod"
