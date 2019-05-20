@@ -1,14 +1,12 @@
 
 language: node_js
 node_js:
--  '10'
+-  "10.3.0"
 before_script:
 -npm install -g gulp
 -npm install -g bower
 script:
-  - npm install;
-  - bower install;
-  - gulp serve; 
-  - gulp build:prod  
-  
-  
+  - npm install
+  - bower install
+  - gulp serve
+  - gulp build:prod
