@@ -1,0 +1,265 @@
+<section>
+    <div class="main-section-row d-flex flex-nowrap" ng-if="$ctrl.contentpage != 'helppage'">
+      <div class="column-big columnOuter d-flex align-items-center justify-content-center text-center CCSCharge">
+        <div class="column-small flex-shrink-0 columnSmallInner" ng-if="$ctrl.ccs.state == 'CHARGING' ">
+          <div class="grid-box d-flex flex-column">
+            <div class="grid-box-head d-flex align-items-center  justify-content-center">
+              <h3>CCS: Charging in progress </h3>
+            </div>
+            <div class="remaining-until-box d-flex flex-column ">
+              <div class="remaining-until-progress text-center">
+                <p>Remaining until {{$ctrl.ccs.targetChargePercent}}%</p>
+                <h1>{{$ctrl.ccs.targetRemainingSeconds}}</h1>
+                <div class="progress-row">
+                  <div class="progress progress-sm">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 50%;"></div>
+                  </div>
+                </div>
+                <h1>{{$ctrl.ccs.chargePercent}}%</h1>
+              </div>
+              <div class="remaining-until-count">
+                <div class="remaininguntil-count-box">
+                  <p>Current power</p>
+                  <h2>{{$ctrl.ccs.kw}} kW</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Energy delivered</p>
+                  <h2>{{$ctrl.ccs.kwh}} kWh</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Time elapsed</p>
+                  <h2>{{$ctrl.ccs.elapsedSeconds}}</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Total cost</p>
+                  <h2>${{$ctrl.ccs.cost}}</h2>
+                </div>
+              </div>
+            </div>
+  
+            <div class="charging-Details-btn" ng-click="$ctrl.navigateToSessionDetail('ccs');">
+              <button type="button" class="details-btn RightSide">
+                Details
+                <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow" /></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="payment-details">
+          <h2>Please plug in vehicle</h2>
+          <div class="chargingStatus">
+            <!-- <h2 ng-if="$ctrl.ccs.state=='AVAILABLE'">{{$ctrl.chademo.state}}</h2>
+            <h2 ng-if="$ctrl.chademo.state == 'AVAILABLE'">{{$ctrl.ccs.state}}</h2> -->
+  
+            <h2 ng-if="$ctrl.status != 'Initializing' && $ctrl.status!=undefined && $ctrl.status!='' ">Status: {{$ctrl.status}}</h2>
+            <h2 ng-if="$ctrl.status == 'Initializing' " class="green-text">Status: {{$ctrl.status}}</h2>
+          </div>
+          <div class="payment-button ">
+            <div class="button-box">
+              <button type="button" class="button" ng-click="$ctrl.onhelpbuttonclick();">Help</button>
+            </div>
+            <div class="button-box">
+              <button type="button" class="button cancel-btn">
+                Cancel
+              </button>
+            </div>
+          </div>
+          <a style="cursor: pointer" class="leftChargingPlug"
+            ng-if="$ctrl.ccs.state  != 'CHARGING' && ($ctrl.currentplug =='ccs' || $ctrl.currentplug ==undefined)"
+            ng-click="$ctrl.activateccsplug();">
+            <span class="right-arrow"><img src="../../images/left-white-arrow.svg" alt="Arrow Icon" /></span>
+            <span c0lass="charging-plug-image">
+              <h2>CCS</h2>
+              <img src="../../images/dual-charging-plug.svg" alt="charging plug" />
+            </span>
+          </a>
+          <a style="cursor: pointer" class="rightChargingPlug"
+            ng-if="$ctrl.chademo.state != 'CHARGING' && ($ctrl.currentplug=='chademo' || $ctrl.currentplug == undefined)"
+            ng-click="$ctrl.activatechademoplug();">
+            <span class="charging-plug-image">
+              <h2>CHAdeMO</h2>
+              <img src="../../images/charging-plug-image.svg" />
+            </span>
+            <span class="right-arrow"><img src="../../images/right-arrow.svg" alt="Arrow Icon" /></span>
+          </a>
+        </div>
+        <div class="column-small flex-shrink-0 columnSmallInner ChaDemoChargeDetails">
+          <div class="grid-box d-flex flex-column" ng-if="$ctrl.chademo.state == 'CHARGING' ">
+            <div class="grid-box-head d-flex align-items-center  justify-content-center">
+              <h3>CHAdeMO : Charging in progress</h3>
+            </div>
+            <div class="remaining-until-box d-flex flex-column ">
+              <div class="remaining-until-progress text-center">
+                <p>Remaining until {{$ctrl.chademo.targetChargePercent}}%</p>
+                <h1>{{$ctrl.chademo.targetRemainingSeconds}}</h1>
+                <div class="progress-row">
+                  <div class="progress progress-sm">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 50%;"></div>
+                  </div>
+                </div>
+                <h1>{{$ctrl.chademo.chargePercent}}%</h1>
+              </div>
+              <div class="remaining-until-count">
+                <div class="remaininguntil-count-box">
+                  <p>Current power</p>
+                  <h2>{{$ctrl.chademo.kw}} kW</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Energy delivered</p>
+                  <h2>{{$ctrl.chademo.kwh}} kWh</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Time elapsed</p>
+                  <h2>{{$ctrl.chademo.elapsedSeconds}}</h2>
+                </div>
+                <div class="remaininguntil-count-box">
+                  <p>Total cost</p>
+                  <h2>${{$ctrl.chademo.cost}}</h2>
+                </div>
+              </div>
+            </div>
+  
+            <div class="charging-Details-btn" ng-click="$ctrl.navigateToSessionDetail('chademo');">
+              <button type="button" class="details-btn RightSide">
+                Details
+                <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow" /></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-section-row d-flex flex-nowrap  " ng-if="$ctrl.contentpage == 'helppage'">
+        <div class="column-small flex-shrink-0 CCSCharge" ng-if="$ctrl.ccs.state == 'CHARGING' ">
+            <div class="grid-box d-flex flex-column">
+              <div class="grid-box-head d-flex align-items-center  justify-content-center">
+                <h3>CCS: Charging in progress </h3>
+              </div>
+              <div class="remaining-until-box d-flex flex-column ">
+                <div class="remaining-until-progress text-center">
+                  <p>Remaining until {{$ctrl.ccs.targetChargePercent}}%</p>
+                  <h1>{{$ctrl.ccs.targetRemainingSeconds}}</h1>
+                  <div class="progress-row">
+                    <div class="progress progress-sm">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                        style="width: 50%;"></div>
+                    </div>
+                  </div>
+                  <h1>{{$ctrl.ccs.chargePercent}}%</h1>
+                </div>
+                <div class="remaining-until-count">
+                  <div class="remaininguntil-count-box">
+                    <p>Current power</p>
+                    <h2>{{$ctrl.ccs.kw}} kW</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Energy delivered</p>
+                    <h2>{{$ctrl.ccs.kwh}} kWh</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Time elapsed</p>
+                    <h2>{{$ctrl.ccs.elapsedSeconds}}</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Total cost</p>
+                    <h2>${{$ctrl.ccs.cost}}</h2>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="charging-Details-btn" ng-click="$ctrl.navigateToSessionDetail('ccs');">
+                <button type="button" class="details-btn RightSide">
+                  Details
+                  <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow" /></span>
+                </button>
+              </div>
+            </div>
+          </div> 
+      
+      
+      <div class="column-big d-flex align-items-center justify-content-center text-center">
+        <div class="payment-details CarCompanyLogoBox">
+          <h2>What kind of charger should I use?</h2>
+          <div class="chargingStatus chargingStatusHelp">
+            <div class="CarCompanyLogoRow">
+              <div class="CarCompanyLogoCcs">
+                <a href="#"><img src="../../images/ccs-com-logo.png" alt="BMW"></a>             
+              </div>
+              <div class="CarCompanyLogoCha">
+                <a href="#"><img src="../../images/chademo-com-log.png" alt="BMW"></a>      
+              </div>
+            </div>
+          </div>
+          <div class="payment-button ">
+            <div class="button-box">
+              <button type="button" class="button" ng-click="$ctrl.navigateToplugVehiclepage();" >Close</button>
+            </div>
+          </div>
+          <a style="cursor: pointer" class="rightChargingPlug" ng-if="$ctrl.chademo.state != 'CHARGING' " ng-click="$ctrl.navigateToplugVehiclepage();">
+            <span class="charging-plug-image">
+              <h2>CHAdeMO</h2>
+              <img src="../../images/charging-plug-image.svg">
+            </span>
+            <span class="right-arrow"><img src="../../images/right-arrow.svg" alt="Arrow Icon"></span>
+          </a>
+          <a style="cursor: pointer" class="leftChargingPlug" ng-if="$ctrl.ccs.state != 'CHARGING' " ng-click="$ctrl.navigateToplugVehiclepage();">
+            <span class="right-arrow"><img src="../../images/left-white-arrow.svg" alt="Arrow Icon"></span>
+            <span class="charging-plug-image">
+              <h2>CCS</h2>
+              <img src="../../images/dual-charging-plug.svg" alt="charging plug">
+            </span>
+          </a>
+          
+        </div>
+      </div>
+  
+      <div class="column-small flex-shrink-0  ChaDemoChargeDetails" ng-if="$ctrl.chademo.state == 'CHARGING' ">
+            <div class="grid-box d-flex flex-column" >
+              <div class="grid-box-head d-flex align-items-center  justify-content-center">
+                <h3>CHAdeMO: Charging in progress</h3>
+              </div>
+              <div class="remaining-until-box d-flex flex-column ">
+                <div class="remaining-until-progress text-center">
+                  <p>Remaining until {{$ctrl.chademo.targetChargePercent}}%</p>
+                  <h1>{{$ctrl.chademo.targetRemainingSeconds}}</h1>
+                  <div class="progress-row">
+                    <div class="progress progress-sm">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                        style="width: 50%;"></div>
+                    </div>
+                  </div>
+                  <h1>{{$ctrl.chademo.chargePercent}}%</h1>
+                </div>
+                <div class="remaining-until-count">
+                  <div class="remaininguntil-count-box">
+                    <p>Current power</p>
+                    <h2>{{$ctrl.chademo.kw}} kW</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Energy delivered</p>
+                    <h2>{{$ctrl.chademo.kwh}} kWh</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Time elapsed</p>
+                    <h2>{{$ctrl.chademo.elapsedSeconds}}</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                    <p>Total cost</p>
+                    <h2>${{$ctrl.chademo.cost}}</h2>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="charging-Details-btn" ng-click="$ctrl.navigateToSessionDetail('chademo');">
+                <button type="button" class="details-btn RightSide">
+                  Details
+                  <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow" /></span>
+                </button>
+              </div>
+            </div>
+          </div>
+    
+    </div>
+  </section>

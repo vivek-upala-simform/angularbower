@@ -1,8 +1,8 @@
 @media (max-width: 1740px) {
-  .power-count-box h1 {
+  /* .power-count-box h1 {
     font-size: 30px;
     line-height: 34px;
-  }
+  } */
   .progress-content h1 {
     font-size: 30px;
     line-height: 34px;
@@ -11,18 +11,7 @@
   .stop-btn:focus {
     padding: 31px 10px;
   }
-/** session in progress time **/
-  .ProgresStepsDetailsBox p{
-    font-size: 14px; 
-    line-height: 18px;
-  }
-  .ProgresStepsDetailsBox h1 {
-    font-size: 36px; 
-    line-height: 40px;
-  }
-  .ProgresStepsDetailsBox {
-    padding-bottom: 70px;
-  }
+  /** session in progress time **/
 }
 @media (max-width: 1440px) {
   .stop-btn,
@@ -60,10 +49,13 @@
   .p-b-54 {
     padding-bottom: 40px;
   }
-  .power-count-box h1 {
+  /* .power-count-box h1 {
     font-size: 26px;
+  } */
+  .ProgresStepsDetailsBox h1 {
+    font-size: 35px;
+    line-height: 39px;
   }
-  
 }
 @media (max-height: 1050px), screen and (orientation: portrait) {
   .main {
@@ -80,24 +72,57 @@
   }
 
   /** session in progress time **/
-  .progresStepsContent .nav-item.p-b-54 {padding-bottom: 40px;}
+  .progresStepsContent .nav-item.p-b-54 {
+    padding-bottom: 40px;
+  }
+
+  .ProgresStepsDetailsBox {
+    padding-bottom: 40px;
+  }
+  .verticalTimeProgresSteps {
+    padding-bottom: 25px;
+  }
+  .chargingprogressHead {
+    padding: 10px 0 30px;
+  }
+  .stop-btn.smallBtn {
+    padding: 25px 50px 25px;
+  }
+  .stop-charging-bnt .exit-btn.smallBtn,
+  .stop-charging-bnt .exit-btn.smallBtn:focus {
+    padding: 25px 50px 25px;
+  }
+  .session-start-column-big .grid-box {
+    height: 42.2vh;
+  }
 }
 @media (max-height: 900px), screen and (orientation: portrait) {
-  .power-count-box h1 {
+  /* .power-count-box h1 {
     font-size: 27px;
     line-height: 34px;
-  }
-  .progress-lg {
-    height: 60px;
-  }
+  } */
   .progress-content .progress-row {
     padding: 30px;
   }
   .p-b-54 {
     padding-bottom: 40px;
   }
-  .stop-charging-bnt .exit-btn, .stop-charging-bnt .exit-btn:focus {
+  .stop-charging-bnt .exit-btn,
+  .stop-charging-bnt .exit-btn:focus {
     padding: 28px 0;
+  }
+  .ProgresStepsDetailsBox h1 {
+    font-size: 35px;
+    line-height: 36px;
+  }
+  .ProgresStepsDetailsBox {
+    padding-bottom: 30px;
+  }
+  .verticalTimeProgresSteps {
+    padding-bottom: 0px;
+  }
+  .session-start-column-big .grid-box {
+    height: 41vh;
   }
 }
 @media (max-width: 1366px) {
@@ -122,6 +147,10 @@
   .main header {
     flex: 0 0 70px;
   }
+
+  .info-content {
+    height: calc(100vh - 92px);
+  }
   .main {
     padding: 0 20px 20px;
   }
@@ -143,20 +172,17 @@
   .stop-btn span img {
     max-width: 100%;
   }
-  .power-count-box {
+  /* .power-count-box {
     padding: 15px;
-  }
-  .power-count-box p {
+  } */
+  /* .power-count-box p {
     font-size: 18px;
     line-height: 22px;
-  }
-  .power-count-box h1 {
+  } */
+  /* .power-count-box h1 {
     font-size: 20px;
     line-height: 24px;
-  }
-  .progress-lg {
-    height: 60px;
-  }
+  } */
   .p-b-54 {
     padding-bottom: 40px;
   }
@@ -193,44 +219,134 @@
   }
 
   /** dual-session-charger-activating ***/
-  .payment-details {position: relative; max-width: 450px;  }
-  .columnOuter .payment-details {margin: 0 0 0 80px;}
-  .payment-button .button-box {padding: 0 15px;}
-  .payment-button .button, .payment-button .button:focus {width: 185px; height: 50px; font-size: 18px;}
-  .payment-details h2 {font-size: 30px; line-height: 34px;}
-  .rightChargingPlug {right: -243px; margin-top:-108px;}
-  .leftChargingPlug {left: -243px; margin-top:-108px;}
-  .charging-plug-image img {max-width: 130px;}
-  .rightChargingPlug .right-arrow {padding-left: 0px;}
-  .leftChargingPlug .right-arrow {padding-right: 0px;}
-  .chargingStatus {padding: 130px 0;}
+  .payment-details {
+    position: relative;
+    max-width: 450px;
+  }
+  .columnOuter .payment-details {
+    margin: 0 0 0 80px;
+  }
+  .CCSCharge .payment-details {
+    margin: 0 80px 0 0;
+  }
+  .payment-button .button-box {
+    padding: 0 15px;
+  }
+  .payment-button .button,
+  .payment-button .button:focus {
+    width: 185px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .payment-details h2 {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .rightChargingPlug {
+    right: -243px;
+    margin-top: -108px;
+  }
+  .leftChargingPlug {
+    left: -243px;
+    margin-top: -108px;
+  }
+  .charging-plug-image img {
+    max-width: 130px;
+  }
+  .rightChargingPlug .right-arrow {
+    padding-left: 0px;
+  }
+  .leftChargingPlug .right-arrow {
+    padding-right: 0px;
+  }
+  .chargingStatus {
+    padding: 130px 0;
+  }
 
-  /** session in progress time **/ 
-  .progresStepsHead h2 {font-size: 21px; line-height: 25px; text-align: center;}
-  .TimeProgresStepsDetails {padding-right: 10px;}
-  .ProgresStepsDetailsBox h1 {font-size: 22px; line-height: 26px;}
+  /** session in progress time **/
+  .progresStepsHead h2 {
+    font-size: 21px;
+    line-height: 25px;
+    text-align: center;
+  }
+  .TimeProgresStepsDetails {
+    padding-right: 30px;
+  }
+  .TimeProgresDetailsRight {
+    padding-left: 30px;
+  }
+  .ProgresStepsDetailsBox p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .ProgresStepsDetailsBox h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .info-advantage-list h3 {
+    font-size: 20px;
+  }
+  .info-advantage-list p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .info-advantage-icon img {
+    max-width: 60px;
+  }
+  .info-content-md .info-contentBody {
+    padding: 20px;
+  }
+  .info-details p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .info-content-lg .info-advantage {
+    padding-left: 15px;
+  }
+  .info-content-lg .info-details {
+    padding-right: 15px;
+  }
+  .info-content-lg .info-contentBody {
+    padding: 20px;
+  }
+  .chargingprogressHead h1 {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .session-start-column-big .grid-box {
+    height: 45.5vh;
+  }
+}
+@media (max-width: 1199px) {
+  .info-content-lg .info-advantage {
+    padding: 0px;
+  }
+  .info-content-lg .info-details {
+    padding: 0px;
+    padding-bottom: 35px;
+  }
 }
 @media (max-height: 980px), screen and (orientation: portrait) {
   .progress-content h1 {
     font-size: 30px;
     line-height: 44px;
   }
-  
+  .session-start-column-big .grid-box {
+    height: 45.2vh;
+  }
 }
 @media (max-width: 991px) {
   .p-b-54 {
     padding-bottom: 20px;
   }
-  .progress-lg {
-    height: 40px;
-  }
   .progress-content h1 {
     font-size: 22px;
     line-height: 26px;
   }
-  .power-count-box {
+  /* .power-count-box {
     padding: 10px;
-  }
+  } */
   .power-count-row .item {
     padding-bottom: 10px;
   }
@@ -277,36 +393,90 @@
   }
 
   /** dual-session-charger-activating ***/
-  .payment-details { max-width: 270px; }
-  .columnOuter .payment-details {margin: 0 0 0 180px;}
-  .payment-details h2 {font-size: 22px; line-height: 26px;}
-  .chargingStatus {padding: 80px 0;}
-  .charging-plug-image img {max-width: 90px;}
-  .rightChargingPlug {right: -150px;}
-  .rightChargingPlug .right-arrow img {max-width: 50px;}
-  .leftChargingPlug {left: -150px;}
-  .leftChargingPlug .right-arrow img {max-width: 50px;}
-  /** session in progress time **/ 
+  .payment-details {
+    max-width: 270px;
+  }
+  .columnOuter .payment-details {
+    margin: 0 0 0 180px;
+  }
+  .CCSCharge .payment-details {
+    margin: 0 180px 0 0;
+  }
+  .payment-details h2 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .chargingStatus {
+    padding: 80px 0;
+  }
+  .charging-plug-image img {
+    max-width: 90px;
+  }
+  .rightChargingPlug {
+    right: -150px;
+  }
+  .rightChargingPlug .right-arrow img {
+    max-width: 50px;
+  }
+  .leftChargingPlug {
+    left: -150px;
+  }
+  .leftChargingPlug .right-arrow img {
+    max-width: 50px;
+  }
+  /** session in progress time **/
   .progressbar-steps {
-    flex:0 0 30px;
+    flex: 0 0 30px;
   }
   .progressbar-steps .progress::before {
-    width: 17px;
-    height: 8px;
-    top: -8px;
+    width: 15px;
+    height: 6px;
+    top: -6px;
   }
   .ProgresStepsDetailsBox h1 {
-
     font-size: 18px;
     line-height: 22px;
-
-}
-
+  }
+  .chargingprogressHead h1 {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .chargingprogressHead h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .TimeProgresDetailsRight {
+    padding-left: 20px;
+  }
+  .TimeProgresStepsDetails {
+    padding-right: 20px;
+  }
+  .ProgresStepsDetailsBox p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .stop-btn.smallBtn {
+    padding: 20px 30px 20px;
+  }
+  .stop-charging-bnt .exit-btn.smallBtn,
+  .stop-charging-bnt .exit-btn.smallBtn:focus {
+    padding: 20px 10px 20px;
+    width: 250px;
+  }
+  .info-advantage-list {
+    flex-direction: column;
+  }
+  .advantage-details {
+    padding-left: 0px;
+  }
+  .info-advantage-icon {
+    padding-bottom: 10px;
+  }
 }
 
 @media (max-height: 1050px), screen and (orientation: portrait) {
   .remaining-until-count {
-    padding-top: 30px;
+    padding-top: 15px;
   }
   .remaining-until-box {
     padding: 20px 24px 20px;
@@ -315,13 +485,12 @@
     padding-top: 30px;
   }
   .remaininguntil-count-box {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
   }
   .remaininguntil-count-box h2 {
     font-size: 30px;
     line-height: 34px;
   }
- 
 }
 
 @media (max-height: 900px), screen and (orientation: portrait) {
@@ -334,16 +503,19 @@
     line-height: 28px;
   }
   .remaining-until-progress .progress-row {
-    padding-top: 25px;
+    padding-top: 15px;
   }
- 
-  .power-count-box {
+
+  /* .power-count-box {
     padding: 15px 20px;
-  }
-  .stop-btn, .stop-btn:focus {
+  } */
+  .stop-btn,
+  .stop-btn:focus {
     padding: 27px 10px;
   }
 }
 @media (max-width: 767px) {
-  .main {width: 900px;}
+  .main {
+    width: 900px;
+  }
 }

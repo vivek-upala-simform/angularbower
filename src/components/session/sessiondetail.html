@@ -1,0 +1,360 @@
+<section>
+    <div class="main-section-row d-flex flex-nowrap" ng-if="$ctrl.currentplug == 'ccs'">
+        <div class="column-big">
+            <div class="chargingprogressbox d-flex flex-column " >
+                <div class="flex-grow-8 ">
+                    <div class=" d-flex flex-column fullHeight">
+                        <div class="progresStepsHead d-flex align-items-center  justify-content-center">
+                            <h2>CCS: Charging in progress</h2>
+                            <a href="#" class="Back-btn"><img src="../../images/left-black-arrow.svg" alt="Left Arrow"></a>
+                        </div>
+                        <div class="grid-box-body d-flex align-items-center  justify-content-center flex-column">
+                            <div class="chargingprogressHead">
+                                <h3>Time remaining to {{$ctrl.ccs.targetChargePercent}}%</h3>
+                                <h1>{{$ctrl.ccs.targetRemainingSeconds | secondsTommss}}</h1>
+                            </div>
+                            <div class="TimeProgresSteps verticalTimeProgresSteps">
+                                <div class="TimeProgresStepsDetails">
+                                    <div class="ProgresStepsDetailsBox">
+                                        <p>Current charge</p>
+                                        <h1>{{$ctrl.ccs.chargePercent}}%</h1>
+                                    </div>
+                                    <div class="ProgresStepsDetailsBox">
+                                        <p>Time elapsed</p>
+                                        <h1>{{$ctrl.ccs.elapsedSeconds | secondsTommss}}</h1>
+                                    </div>
+    
+                                </div>
+                                <div class="progressbar-steps">
+                                    <div class="progress">
+                                        <div class="progress-bar-steps verticalChargProgress" role="progressbar"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" ng-style="{'height': $ctrl.ccs.chargePercentstring}">
+                                        </div>
+    
+                                    </div>
+                                </div>
+                                <div class="TimeProgresDetailsRight">
+                                    <div class="ProgresStepsDetailsBox">
+                                        <p>Energy delivered</p>
+                                        <h1>{{$ctrl.ccs.kw}} kW</h1>
+                                    </div>
+                                    <div class="ProgresStepsDetailsBox">
+                                        <p>Current power</p>
+                                        <h1>{{$ctrl.ccs.kwh}} kWh</h1>
+                                    </div>
+                                    <div class="ProgresStepsDetailsBox">
+                                        <p>Total cost</p>
+                                        <h1>{{$ctrl.ccs.cost}}</h1>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="stop-charging-row">
+                    <div class="stop-charging-bnt text-center" ng-click="$ctrl.stopccs();">
+                        <button type="button" class="stop-btn smallBtn">
+                            <span><img src="../../images/close.svg" alt="close" /></span>Stop Charging
+                        </button>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column-medium" ng-click="$ctrl.navigateToHome();">
+            <div class="grid-box d-flex align-items-top  justify-content-center">
+                <div class="info-content info-content-md">
+                    <div class="info-contentBody">
+                        <div class="info-details">
+                            <p>FreeWire’s Boost Charger is a powerful battery-integrated electric vehicle charger. Easy to
+                                connect with
+                                existing infrastructure, it can be set up without costly construction or permitting. With
+                                160 kWh of
+                                battery capacity and 120 kW output, Boost Charger is ready for current and next generation
+                                EVs. Boost
+                                Charger enables ultrafast charging using the same infrastructure as L2 chargers at up to a
+                                40% lower cost
+                                of installation versus other fast chargers. Deliver high-quality power while significantly
+                                reducing demand
+                                charges with Boost Charger’s battery-integrated platform.</p>
+                        </div>
+                        <div class="info-advantage">
+                            <div class="info-advantage-list">
+                                <div class="info-advantage-icon"><img src="../../images/doller-icon.svg"
+                                        alt="Lower Energy Costs" /></div>
+                                <div class="advantage-details">
+                                    <h3>Lower Energy Costs</h3>
+                                    <p>Tap into off-peak rates using FreeWire's Energy Buffering Technology and reduce EV
+                                        charging bills by
+                                        over 50%.</p>
+                                </div>
+                            </div>
+                            <div class="info-advantage-list">
+                                <div class="info-advantage-icon"><img src="../../images/speed-icon.svg"
+                                        alt="Lower Energy Costs" /></div>
+                                <div class="advantage-details">
+                                    <h3>Unparalleled Speed</h3>
+                                    <p>Deliver up to 480 miles of range with a single, one-hour charge thanks to 160 kWh of lithium-ion energy storage and power-boosting, high-density silicon carbide technology.</p>
+                                </div>
+                            </div>
+                            <div class="info-advantage-list">
+                                <div class="info-advantage-icon"><img src="../../images/IntelligentCharging.svg"
+                                        alt="Intelligent Charging" /></div>
+                                <div class="advantage-details">
+                                    <h3>Intelligent Charging</h3>
+                                    <p>Get full visibility into charger status and usage with Freewire's Activity Management Platform(AMP). AMP lets you regulate power delivery between utilities, admins and end-customers.</p>
+                                </div>
+                            </div>
+                            <div class="info-advantage-list">
+                                <div class="info-advantage-icon"><img src="../../images/easier-setup.svg"
+                                        alt="Lower Energy Costs" /></div>
+                                <div class="advantage-details">
+                                    <h3>Easier Setup</h3>
+                                    <p>Avoid panel upgrades, new transformers, costly infrastructure updates and permitting delays. 
+                                      Boost charger can be powered from a single-phase connection and installed in places that couldn't previously support higher energy demand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column-small flex-shrink-0" ng-if="$ctrl.chademo.state != 'CHARGING' ">
+            <div class="grid-box d-flex flex-column" ng-click="$ctrl.onchademoclick();">
+                <div class="charging-plug-box d-flex flex-column justify-content-center">
+                    <h2>CHAdeMO</h2>
+                    <img src="../../images/charging-plug-image.svg" alt="charging-plug" />
+                    <p ng-if="$ctrl.chademo.state == 'AVAILABLE'">Available for charging</p>
+                    <p ng-if="$ctrl.chademo.state == 'UNAVAILABLE'">Unavailable for charging</p>
+                </div>
+                <div class="charging-plug-btn" ng-click="$ctrl.onchademoclick();">
+                    <button type="button" class="plug-btn">
+                        <img src="../../images/charging-plug.svg" alt="Plug" />
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="column-small flex-shrink-0" ng-if="$ctrl.chademo.state == 'CHARGING' ">
+          <div class="grid-box d-flex flex-column">
+              <div class="grid-box-head d-flex align-items-center  justify-content-center">
+                  <h3>CHAdeMO: Charging in progress</h3>
+                </div>
+            <div class="remaining-until-box d-flex flex-column ">
+                <div class="remaining-until-progress text-center">
+                    <p>Remaining until {{$ctrl.chademo.targetChargePercent}}%</p>
+                    <h1>{{$ctrl.chademo.targetRemainingSeconds | secondsTommss}}</h1>
+                    <div class="progress-row">
+                        <div class="progress progress-sm">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': $ctrl.chademo.chargePercentstring}"></div>
+                        </div>
+                      </div>
+                      <h1>{{$ctrl.chademo.chargePercent}}%</h1>
+                </div>
+                <div class="remaining-until-count">
+                  <div class="remaininguntil-count-box">
+                      <p>Current power</p>
+                      <h2>{{$ctrl.chademo.kw}} kW</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                      <p>Energy delivered</p>
+                      <h2>{{$ctrl.chademo.kwh}} kWh</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                      <p>Time elapsed</p>
+                      <h2>{{$ctrl.chademo.elapsedSeconds | secondsTommss}}</h2>
+                  </div>
+                  <div class="remaininguntil-count-box">
+                      <p>Total cost</p>
+                      <h2>${{$ctrl.chademo.cost}}</h2>
+                  </div>
+                </div>
+            </div>
+    
+            <div class="charging-Details-btn">
+                <button type="button" class="details-btn RightSide" ng-click="$ctrl.changecurrentplug('chademo')">
+                    Details
+                    <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow"></span>
+                  </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="main-section-row d-flex flex-nowrap" ng-if="$ctrl.currentplug == 'chademo'">
+      <div class="column-small"  ng-if="$ctrl.ccs.state == 'CHARGING' ">
+        <div class="grid-box d-flex flex-column">
+          <div class="grid-box-head d-flex align-items-center  justify-content-center">
+            <h3>CCS: Charging in progress</h3>
+          </div>
+          <div class="remaining-until-box d-flex flex-column ">
+            <div class="remaining-until-progress text-center">
+              <p>Remaining until {{$ctrl.ccs.targetChargePercent}}%</p>
+              <h1>{{$ctrl.ccs.targetRemainingSeconds | secondsTommss }}</h1>
+              <div class="progress-row">
+                <div class="progress progress-sm">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': $ctrl.ccs.chargePercentstring}"></div>
+                </div>
+              </div>
+              <h1>{{$ctrl.ccs.chargePercent}}%</h1>
+            </div>
+            <div class="remaining-until-count">
+              <div class="remaininguntil-count-box">
+                <p>Current power</p>
+                <h2>{{$ctrl.ccs.kw}} kW</h2>
+              </div>
+              <div class="remaininguntil-count-box">
+                <p>Energy delivered</p>
+                <h2>{{$ctrl.ccs.kwh}} kWh</h2>
+              </div>
+              <div class="remaininguntil-count-box">
+                <p>Time elapsed</p>
+                <h2>{{$ctrl.ccs.elapsedSeconds | secondsTommss}}</h2>
+              </div>
+              <div class="remaininguntil-count-box">
+                <p>Total cost</p>
+                <h2>${{$ctrl.ccs.cost}}</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="charging-Details-btn">
+            <button type="button" class="details-btn RightSide" ng-click="$ctrl.changecurrentplug('ccs');">
+              Details
+              <span class="arrow"><img src="../../images/black-arrow-sm.svg" alt="arrow"></span>
+            </button>
+          </div>
+        </div>  
+      </div>
+        <div class="column-small flex-shrink-0" ng-if="$ctrl.ccs.state != 'CHARGING' ">
+          <div class="grid-box d-flex flex-column">
+            <div class="charging-plug-box d-flex flex-column justify-content-center">
+              <h2>CCS</h2>
+              <img src="../../images/dual-charging-plug.svg" alt="charging-plug" />
+              <p ng-if="$ctrl.ccs.state == 'AVAILABLE'">Available for charging</p>
+              <p ng-if="$ctrl.ccs.state == 'UNAVAILABLE'">Unavailable for charging</p>
+            </div>
+            <div class="charging-plug-btn" ng-click="$ctrl.onccsclick();">
+              <button type="button" class="plug-btn">
+                <img src="../../images/charging-plug.svg" alt="Plug"/>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column-medium" ng-click="$ctrl.navigateToHome();">
+          <div class="grid-box d-flex align-items-top  justify-content-center">
+            <div class="info-content info-content-md">
+              <div class="info-contentBody">
+                <div class="info-details">
+                  <p>FreeWire’s Boost Charger is a powerful battery-integrated electric vehicle charger. Easy to connect with
+                    existing infrastructure, it can be set up without costly construction or permitting. With 160 kWh of
+                    battery capacity and 120 kW output, Boost Charger is ready for current and next generation EVs. Boost
+                    Charger enables ultrafast charging using the same infrastructure as L2 chargers at up to a 40% lower cost
+                    of installation versus other fast chargers. Deliver high-quality power while significantly reducing demand
+                    charges with Boost Charger’s battery-integrated platform.</p>
+                </div>
+                <div class="info-advantage">
+                  <div class="info-advantage-list">
+                    <div class="info-advantage-icon"><img src="../../images/doller-icon.svg" alt="Lower Energy Costs" /></div>
+                    <div class="advantage-details">
+                      <h3>Lower Energy Costs</h3>
+                      <p>Tap into off-peak rates using FreeWire's Energy Buffering Technology and reduce EV charging bills by
+                        over 50%.</p>
+                    </div>
+                  </div>
+                  <div class="info-advantage-list">
+                    <div class="info-advantage-icon"><img src="../../images/speed-icon.svg" alt="Lower Energy Costs" /></div>
+                    <div class="advantage-details">
+                      <h3>Unparalleled Speed</h3>
+                      <p>Deliver up to 480 miles of range with a single, one-hour charge
+                        thanks to 160 kWh of lithium-ion energy storage and power-boosting, 
+                        high-density silicon carbide technology.</p>
+                    </div>
+                  </div>
+                  <div class="info-advantage-list">
+                    <div class="info-advantage-icon"><img src="../../images/IntelligentCharging.svg" alt="Lower Energy Costs" /></div>
+                    <div class="advantage-details">
+                      <h3>Intelligent Charging</h3>
+                      <p>Get full visibility into charger status and usage with Freewire's Activity Management Platform(AMP). AMP lets you regulate power delivery between utilities, admins and end-customers.</p>
+                    </div>
+                  </div>
+                  <div class="info-advantage-list">
+                    <div class="info-advantage-icon"><img src="../../images/easier-setup.svg" alt="Lower Energy Costs" /></div>
+                    <div class="advantage-details">
+                      <h3>Easier Setup</h3>
+                      <p>Avoid panel upgrades, new transformers, costly infrastructure updates and permitting delays. 
+                        Boost charger can be powered from a single-phase connection and installed in places that couldn't previously support higher energy demand.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+        <div class="column-big">
+          <div class="chargingprogressbox d-flex flex-column ">
+            <div class="flex-grow-8 ">
+              <div class=" d-flex flex-column fullHeight">
+                <div class="progresStepsHead arrowRight d-flex align-items-center  justify-content-center">
+                  <h2>CHAdemo: Charging in progress</h2>
+                  <a href="#" class="Back-btn"><img src="../../images/left-black-arrow.svg" alt="Left Arrow"></a>
+                </div>
+                <div class="grid-box-body d-flex align-items-center  justify-content-center flex-column">
+                  <div class="chargingprogressHead">
+                    <h3>Time remaining to {{$ctrl.chademo.targetChargePercent}}%</h3>
+                    <h1>~{{$ctrl.chademo.targetRemainingSeconds | secondsTommss}} min</h1>
+                  </div>
+                  <div class="TimeProgresSteps verticalTimeProgresSteps">
+                    <div class="TimeProgresStepsDetails">
+      
+                      <div class="ProgresStepsDetailsBox">
+                        <p>Energy delivered</p>
+                        <h1>{{$ctrl.chademo.kwh}} kWh</h1>
+                      </div>
+                      <div class="ProgresStepsDetailsBox">
+                        <p>Current power</p>
+                        <h1>{{$ctrl.chademo.kw}} kW</h1>
+                      </div>
+                      <div class="ProgresStepsDetailsBox">
+                        <p>Total cost</p>
+                        <h1>${{$ctrl.chademo.cost}}</h1>
+                      </div>
+      
+                    </div>
+                    <div class="progressbar-steps">
+                      <div class="progress">
+                        <div class="progress-bar-steps verticalChargProgress" role="progressbar" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100" ng-style="{'height': $ctrl.chademo.chargePercentstring}"></div>
+      
+                      </div>
+                    </div>
+                    <div class="TimeProgresDetailsRight">
+                      <div class="ProgresStepsDetailsBox">
+                        <p>Current charge</p>
+                        <h1>{{$ctrl.chademo.chargePercent}}%</h1>
+                      </div>
+                      <div class="ProgresStepsDetailsBox">
+                        <p>Time elapsed</p>
+                        <h1>{{$ctrl.chademo.elapsedSeconds | secondsTommss}}</h1>
+                      </div>
+                    </div>
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+      
+            <div class="stop-charging-row">
+              <div class="stop-charging-bnt text-center" ng-click="$ctrl.stopchademo();"> 
+                <button type="button" class="stop-btn smallBtn">
+                  <span><img src="../../images/close.svg" alt="close" /></span>Stop Charging
+                </button>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

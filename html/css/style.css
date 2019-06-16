@@ -63,6 +63,8 @@ body {
   font-size: 18px;
   line-height: 1;
   height: 100vh;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 /** default css **/
 h1,
@@ -128,12 +130,23 @@ h3 {
   width: 100%;
   flex-wrap: nowrap;
 }
+.fullHeight {
+  height: 100%;
+}
 .p-b-54 {
   padding-bottom: 54px;
 }
 .pad-0 {
   padding: 0px !important;
 }
+/* ******** color code Start ********** */
+.red-rext {
+  color: #cd0707;
+}
+.green-text {
+  color: #26ff88;
+}
+/* ******** color code End ********** */
 /** Custom Grid Gutters **/
 .container-fluid {
   padding-left: 27px;
@@ -178,16 +191,18 @@ h3 {
   background: #181818;
   border-radius: 7px;
   overflow: hidden;
+  width: 100%;
   height: 100%;
 }
 .grid-box-head {
   background: #26ff88;
   border-radius: 7px 7px 0px 0px;
-  min-height: 66px;
-  flex: 0 0 66px;
+  min-height: 90px;
+  flex: 0 0 90px;
   text-align: center;
 }
-.grid-box-head h3 {
+.grid-box-head h3,
+.grid-box-head h2 {
   color: #000000;
 }
 .grid-box-head p {
@@ -219,20 +234,18 @@ h3 {
   height: 100%;
   border: 1px dashed #26ff88;
 }
-.progress-lg {
-  height: 87px;
-}
+
 .progress-bar {
   background: #26ff88;
   border-radius: 0px;
 }
 
 /***  session-ccs-In-progress ****/
-.power-count-row p {
+/* .power-count-row p {
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
-}
+} */
 .flex-grow-8 {
   flex-grow: 8;
 }
@@ -250,15 +263,27 @@ h3 {
   width: 100%;
   text-align: center;
 }
-.progress-content .progress-row {
-  padding: 42px 0;
+.chargingprogressHead {
+  padding-top: 16px;
+  padding-bottom: 40px;
+  text-align: center;
 }
-.power-count-box {
+.chargingprogressHead h1 {
+  text-align: center;
+}
+.chargingprogressHead h3 {
+  font-weight: 300;
+  padding-bottom: 7px;
+}
+/* .progress-content .progress-row {
+  padding: 42px 0;
+} */
+/* .power-count-box {
   padding: 24px;
 }
 .power-count-box p {
   margin-bottom: 7px;
-}
+} */
 .stop-btn,
 .stop-btn:focus {
   border-radius: 7px;
@@ -281,8 +306,15 @@ h3 {
 .stop-btn:hover {
   background-color: #ab1212;
 }
+.stop-btn.smallBtn {
+  padding: 42px 83px 41px;
+  display: inline-block;
+  width: auto;
+}
 .info-content {
   padding: 30px;
+  height: calc(100vh - 142px);
+  overflow: auto;
 }
 .info-content h2 {
   color: #424242;
@@ -290,6 +322,70 @@ h3 {
   font-size: 36px;
   line-height: 42px;
   text-align: center;
+}
+.info-details {
+  padding-bottom: 35px;
+}
+.info-details p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+.startinfo-content {
+  padding: 27px;
+  height: 100%;
+  overflow: auto;
+}
+.info-contentBody-left {
+  padding-right: 23px;
+}
+.info-contentBody-Right {
+  padding-left: 23px;
+}
+.info-details p:last-child {
+  margin-bottom: 0;
+}
+.info-advantage-list {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 34px;
+}
+.info-advantage-list:last-child {
+  padding-bottom: 0px;
+}
+.info-content-md {
+  padding: 0px;
+}
+.info-content-md .info-contentBody {
+  padding: 54px 46px;
+}
+.info-content-lg {
+  padding: 0px;
+}
+.info-content-lg .info-contentBody {
+  padding: 54px;
+  min-height: 100%;
+}
+.info-content-lg .info-details {
+  flex-basis: 50%;
+  padding-right: 27px;
+}
+.info-content-lg .info-advantage {
+  flex-basis: 50%;
+  padding-left: 27px;
+}
+.advantage-details {
+  padding-left: 24px;
+}
+.info-advantage-list h3 {
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.info-advantage-list p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
 }
 .charging-plug-box {
   text-align: center;
@@ -355,7 +451,7 @@ h3 {
   background: #26ff88;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 16px;
   color: #000000;
   padding: 24px 10px;
@@ -363,9 +459,22 @@ h3 {
   width: 100%;
   outline: 0px;
   transition: all 0.5s ease-in-out;
+  position: relative;
 }
 .charging-Details-btn .details-btn:hover {
   background: #1fcc6d;
+}
+.details-btn .arrow {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  line-height: 64px;
+  vertical-align: middle;
+}
+.details-btn.RightSide .arrow {
+  right: 18px;
+  left: inherit;
+  transform: rotateY(180deg);
 }
 
 /**** session-stopped ****/
@@ -388,7 +497,13 @@ h3 {
   background: #cd0707;
   color: #fff;
 }
-
+.exit-btn.smallBtn,
+.exit-btn.smallBtn:focus {
+  padding: 47px 10px;
+  display: inline-block;
+  width: 100%;
+  max-width: 412px;
+}
 /*** dual-session-welcome  **/
 .payment-details .payment-pad-top {
   padding-top: 245px;
@@ -472,13 +587,32 @@ h3 {
 .leftChargingPlug .right-arrow {
   padding: 20px 20px 0 0;
 }
-
+.ChaDemoCharge .CCSChargeDetails,
+.ChaDemoCharge .ChaDemoPlug {
+  display: flex;
+}
+.ChaDemoCharge .ChaDemoChargeDetails,
+.ChaDemoCharge .CCSChargePlug {
+  display: none;
+}
+.CCSCharge .CCSChargeDetails,
+.CCSCharge .ChaDemoPlug {
+  display: none;
+}
+.CCSCharge .ChaDemoChargeDetails,
+.CCSCharge .CCSChargePlug {
+  display: flex;
+}
 .columnSmallInner {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 311px;
+}
+.ChaDemoChargeDetails {
+  right: 0;
+  left: inherit;
 }
 /** session in progress time **/
 .charging-progres-steps {
@@ -505,6 +639,10 @@ h3 {
   line-height: 90px;
   vertical-align: middle;
 }
+.progresStepsHead.arrowRight a {
+  right: 18px;
+  transform: rotateY(180deg);
+}
 .power-count-tabing {
   display: block;
   color: #fff;
@@ -528,12 +666,22 @@ h3 {
 .TimeProgresSteps {
   height: 100%;
   display: flex;
+  width: 100%;
   justify-content: flex-end;
+}
+.verticalTimeProgresSteps {
+  padding-bottom: 34px;
 }
 .TimeProgresStepsDetails {
   flex: 1 1 auto;
   padding-right: 54px;
   text-align: right;
+  padding-top: 14px;
+}
+.TimeProgresDetailsRight {
+  flex: 1 1 auto;
+  padding-left: 78px;
+  text-align: left;
   padding-top: 14px;
 }
 .progressbar-steps {
@@ -542,7 +690,7 @@ h3 {
   align-items: flex-end;
 }
 .progressbar-steps .progress {
-  height: calc(100% - 13.75px);
+  height: calc(100% - 8.86px);
   flex-direction: column;
   justify-content: flex-end;
   overflow: inherit;
@@ -550,11 +698,11 @@ h3 {
 .progressbar-steps .progress::before {
   content: "";
   position: absolute;
-  top: -13.75px;
+  top: -9px;
   left: 0;
   right: 0;
   width: 33px;
-  height: 13.75px;
+  height: 8.86px;
   border-radius: 7px 7px 0px 0px;
   border: 2px solid #26ff88;
   margin: 0 auto;
@@ -566,7 +714,7 @@ h3 {
   bottom: 80%;
   top: inherit;
 }
-.progressbar-steps .progress-bar-steps {
+.progressbar-steps .borRadiusB {
   border-radius: 0 0 7px 7px;
 }
 .progressbar-steps .CurrentCharge {
@@ -576,8 +724,11 @@ h3 {
 .progressbar-steps .timeElapsed {
   background: rgba(38, 255, 136, 0.4);
 }
+.progressbar-steps .verticalChargProgress {
+  background: #26ff88;
+}
 .ProgresStepsDetailsBox {
-  padding-bottom: 90px;
+  padding-bottom: 60px;
 }
 .ProgresStepsDetailsBox:last-child {
   padding-bottom: 0px;
@@ -660,7 +811,94 @@ h3 {
 .chargingStatusHelp .CarCompanyLogoCha {
   padding: 0 45px 0 0;
 }
-.green-text {
-  color: #26ff88;
-}
 /* ******* Pricing Details Table End ******* */
+/* ******* Welcome Start ******* */
+.welcome-details {
+  width: 100%;
+  max-width: 780px;
+}
+/* ******* Welcome End ******* */
+.plug-error-msg {
+  padding: 0 44px;
+}
+/* ******* session in progress ccs status start ******* */
+.TimeProgresStepsBg {
+  padding: 19px 13px 25px;
+  background: #181818;
+  height: 100%;
+}
+.TimeProgresStepsBg .TimeProgresStepsDetails {
+  padding-right: 27px;
+}
+.progressbar-steps-ccs .progress:before,
+.progressbar-steps-ccs .progress::after {
+  display: none;
+}
+.progressbar-steps-ccs {
+  flex: 0 0 52px;
+}
+.TimeProgresStepsBg h2 {
+  font-size: 34px;
+}
+.TimeProgresHeading {
+  text-align: center;
+}
+.TimeProgresHeading h2 {
+  font-size: 36px;
+}
+.TimeProgresStepsBg .TimeProgresSteps {
+  height: calc(100% - 60px);
+}
+.ProgresStepsDetailsBoxccs {
+  padding: 100px 0 160px 0;
+}
+.TimeProgresCountCcs .power-count-tabing {
+  padding: 17px 24px 17px;
+}
+.TimeProgresCountCcs .power-count-tabing h1 {
+  font-size: 46px;
+  line-height: 52px;
+}
+.TimeProgresCountCcs .stop-btn {
+  padding: 40px 10px 39px;
+}
+/* ******* session in progress ccs status end ******* */
+/* ******* session start css start ******* */
+.session-start-column-big .grid-box {
+  height: 42.7vh;
+}
+.card-grid-box {
+  background: #000000;
+}
+.card-grid-box h2 {
+  padding: 0 0 75px 0;
+  color: #ffffff;
+  font-weight: normal;
+}
+.pricing-button {
+  text-align: center;
+}
+.pricing-button button,
+.pricing-button button:focus {
+  border: 2px solid #26ff88;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #26ff88;
+  outline: 0px;
+  width: 257px;
+  height: 71px;
+  background: transparent;
+  transition: all 0.5s ease-in-out;
+}
+.pricing-button button:hover {
+  background: #26ff88;
+  color: #000;
+}
+/* ******* session start css end ******* */
+/* ******* payment failure css start ******* */
+.failure-try-msg {
+  padding: 48px 0 110px 0;
+}
+/* ******* payment failure css end ******* */
