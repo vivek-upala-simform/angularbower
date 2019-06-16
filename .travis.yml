@@ -5,4 +5,5 @@ node_js:
   - "10"
 script: 
   - "yarn install;"
+  - "yarn start"
   - webpack;
