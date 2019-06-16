@@ -5,4 +5,4 @@ import './components/user';
 import './components/creditcard';
 import './components/vehicle';
 import './components/session';
-import './components/sessionsummary'
+import './components/sessionsummary';
